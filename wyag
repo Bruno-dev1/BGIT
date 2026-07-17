@@ -1,0 +1,2 @@
+import bgit
+bgit.main()
