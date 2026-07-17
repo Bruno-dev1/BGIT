@@ -1,13 +1,18 @@
 import sys
 from pathlib import Path
+import repository
 
 
 #criaçao  das funções
 #.bgit/
 def init():
 
-    print("iniciando repositório")
-    paths = [".bgit","objects","refs","heads","tags"]
+    if Path("bgit/").is_dir():
+        print("Rpositório já existente")
+        sys.exit(1)
+    repository.creatDirectorys()
+    repository.createArchives()  
+    print("repositório criado com sucesso!")         
 def status():
     print("status...")
 def commit():
@@ -16,7 +21,6 @@ def commit():
 #para comandos
 if(len(sys.argv)> 1):
     command = sys.argv[1]
-    print("Comando recebido: "+command)
     match command:
         case "init":
             init()
