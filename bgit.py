@@ -8,13 +8,14 @@ import repository
 def init():
 
     if Path("bgit/").is_dir():
-        print("Rpositório já existente")
+        print("Repository exist!")
         sys.exit(1)
     repository.creatDirectorys()
     repository.createArchives()  
     print("repositório criado com sucesso!")         
 def status():
     print("status...")
+    repository.find_repository()
 def commit():
     print("comitando")
 
@@ -24,7 +25,6 @@ if(len(sys.argv)> 1):
     match command:
         case "init":
             init()
-            
         case "status":
             status()
         case "commit":

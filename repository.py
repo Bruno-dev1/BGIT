@@ -1,6 +1,6 @@
 from pathlib import Path
 def creatDirectorys():
-    print("iniciando repositório")
+    print("starting repository")
     root=Path("bgit")
     directories = [
         root,
@@ -12,8 +12,7 @@ def creatDirectorys():
     ]
     for directory in directories:
         directory.mkdir(parents=True,exist_ok= True)
-        print(f"Criando {directory}...")
-
+        print(f"Creating {directory}...")
 def createArchives():
     root=Path("bgit")
     archives = [
@@ -22,5 +21,17 @@ def createArchives():
     ]
     for archive in archives:
         archive.touch()
-        print(f"Criando arquivo {archive}")
+        print(f"Archive {archive} created...")
     (root / "HEAD").write_text("ref: refs/heads/main",encoding="utf-8")
+def find_repository():
+    path_atual = Path.cwd()
+    while True:
+        if (path_atual / "bgit").exists():
+            print(f"repository finded! {path_atual / "bgit"}")
+            break
+        if path_atual != path_atual.parent :
+            print("Repository not founded!")
+            break
+        path_atual = path_atual.parent
+
+    
