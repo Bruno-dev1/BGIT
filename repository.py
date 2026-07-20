@@ -1,7 +1,7 @@
 from pathlib import Path
 def creatDirectorys():
     print("starting repository")
-    root=Path("bgit")
+    root=Path(".bgit")
     directories = [
         root,
         root / "objects",
@@ -14,7 +14,7 @@ def creatDirectorys():
         directory.mkdir(parents=True,exist_ok= True)
         print(f"Creating {directory}...")
 def createArchives():
-    root=Path("bgit")
+    root=Path(".bgit")
     archives = [
         root / "HEAD",
         root / "config",
@@ -26,8 +26,8 @@ def createArchives():
 def find_repository():
     path_atual = Path.cwd()
     while True:
-        if (path_atual / "bgit").exists():
-            print(f"repository finded! {path_atual / "bgit"}")
+        if (path_atual / ".bgit").exists():
+            print(f"repository founded! {path_atual / ".bgit"}")
             break
         if path_atual != path_atual.parent :
             print("Repository not founded!")
